@@ -1,11 +1,13 @@
 import { dbContext } from '../db/DbContext'
 import { BadRequest, Forbidden } from '../utils/Errors'
-import { logger } from '../utils/Logger'
 
 class PostsService {
   async getAll(query = {}) {
-    const posts = dbContext.Posts.find(query).populate('creator', 'name picture')
-    return posts
+    const page = query.page || 1
+    delete query.page
+    const totalPages = Math.ceil(await dbContext.Packages.count() / 5)
+    const posts = await dbContext.Posts.find(query).populate('creator', 'name picture').limit(25).skip((page - 1) * 25)
+    return { results: posts, page, totalPages }
   }
 
   async getById(id) {
