@@ -19,7 +19,8 @@ export const ProfileSchema = new Schema(
     name: { type: String, required: true },
     picture: { type: String },
     // NOTE if you want to make properties from the account public put them here
-    topPoster: { type: Boolean, required: true, default: false }
+    topPoster: { type: Boolean, required: true, default: false },
+    voteCount: { type: Number, required: true, default: 0 }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
