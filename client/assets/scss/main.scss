@@ -15,5 +15,58 @@ main {
   flex-grow: 1;
 }
 
+.title-font {
+  font-family: 'Bangers', cursive;
+}
+
+.outline
+{
+    color: #ffffff;
+    text-shadow:
+    -2px -2px 0 #cc932a,
+    2px -2px 0 #cc932a,
+    -2px 2px 0 #cc932a,
+    2px 2px 0 #cc932a;
+}
+
+input:focus {
+  box-shadow: none!important;
+}
+input:active {
+  box-shadow: none!important;
+}
+input::after {
+box-shadow: none!important;
+}
+button:focus {
+  box-shadow: none!important;
+}
+
+.fa-search {
+  cursor: pointer;
+}
+
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+searchW{
+  max-width: 100px;
+}
 
 
+@media screen and (min-width: 601px) {
+  #title {
+    font-size: 4em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #title {
+    font-size: 3em;
+  }
+}

@@ -71,7 +71,7 @@ function authButton(user) {
     <button class="btn btn-small btn-dark text-muted" onclick="app.authController.logout()">✖</button>
   `
     : /* html */ `
-    <button class="btn btn-dark" onclick="app.authController.login()">login</button>
+    <button class="mx-3 btn btn-dark" onclick="app.authController.login()">login</button>
   `
 }
 
