@@ -1,4 +1,5 @@
 import { dbContext } from '../db/DbContext'
+import { BadRequest } from '../utils/Errors'
 
 // Private Methods
 
@@ -73,6 +74,11 @@ class AccountService {
       { runValidators: true, setDefaultsOnInsert: true, new: true }
     )
     return account
+  }
+
+  async getKing() {
+    const king = await dbContext.Profiles.find({ topPoster: true })
+    return king
   }
 }
 export const accountService = new AccountService()
