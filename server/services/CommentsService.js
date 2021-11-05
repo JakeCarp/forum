@@ -5,7 +5,7 @@ class CommentsService {
   async getAll(query) {
     const page = query.page || 1
     delete query.page
-    const totalPages = Math.ceil(await dbContext.Packages.count() / 5)
+    const totalPages = Math.ceil(await dbContext.Comments.count() / 5)
     const comments = await dbContext.Comments.find(query).populate('post', 'title').limit(15).skip((page - 1) * 15)
     return { results: comments, page, totalPages }
   }

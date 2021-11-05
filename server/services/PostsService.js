@@ -5,7 +5,7 @@ class PostsService {
   async getAll(query = {}) {
     const page = query.page || 1
     delete query.page
-    const totalPages = Math.ceil(await dbContext.Packages.count() / 5)
+    const totalPages = Math.ceil(await dbContext.Posts.count() / 5)
     const posts = await dbContext.Posts.find(query).populate('creator', 'name picture').limit(25).skip((page - 1) * 25)
     return { results: posts, page, totalPages }
   }
