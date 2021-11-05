@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 const ObjectId = mongoose.Types.ObjectId
 
 export const PostSchema = new Schema({
+  title: { type: String, maxlength: 100, required: true },
   content: { type: String, maxlength: 1000 },
   imgUrl: { type: String },
   upVotes: { type: Number, required: true, default: 0 },

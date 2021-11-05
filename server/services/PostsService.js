@@ -9,7 +9,7 @@ class PostsService {
   }
 
   async getById(id) {
-    const post = dbContext.Posts.findById(id).populate('creator', 'name picture').populate('creator', 'name picture')
+    const post = dbContext.Posts.findById(id).populate('creator', 'name picture')
     if (!post) {
       throw new BadRequest('The post you seek does not exist')
     }
@@ -22,11 +22,11 @@ class PostsService {
   }
 
   async edit(postData) {
-    const posts = await this.getAll()
-    const post = posts.find(postData.id)
+    const post = await this.getById(postData.id)
     if (post.creatorId.toString() !== postData.creatorId) {
       throw new Forbidden('You shall not pass!')
     }
+
     const updated = await dbContext.Posts.findByIdAndUpdate(postData.id, postData, { new: true })
     return updated
   }
