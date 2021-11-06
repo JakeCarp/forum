@@ -6,6 +6,7 @@ export class ProfilesController extends BaseController {
     super('api/profiles')
     this.router
       .get('', this.getProfiles)
+      .get('/king')
       .get('/:id', this.getProfile)
   }
 
@@ -24,6 +25,15 @@ export class ProfilesController extends BaseController {
       res.send(profile)
     } catch (error) {
       next(error)
+    }
+  }
+
+  async getKing(req, res, next) {
+    try {
+      const kingObj = await profileService.getKing()
+      return res.send(kingObj)
+    } catch (error) {
+
     }
   }
 }

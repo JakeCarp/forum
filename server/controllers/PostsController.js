@@ -13,6 +13,7 @@ export class PostsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
       .put('/:id', this.edit)
+      .put('/:id/:vote', this.vote)
       .delete('/:id', this.remove)
   }
 
@@ -59,6 +60,18 @@ export class PostsController extends BaseController {
       return res.send(post)
     } catch (error) {
       next(error)
+    }
+  }
+
+  async vote(req, res, next) {
+    try {
+      const voteStr = req.params.vote
+      const postId = req.params.id
+      const voterId = req.userInfo.id
+      await postsService.vote(voteStr, postId, voterId)
+      res.send('vote sent')
+    } catch (error) {
+
     }
   }
 

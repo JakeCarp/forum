@@ -6,7 +6,7 @@ class PostsService {
     const page = query.page || 1
     delete query.page
     const totalPages = Math.ceil(await dbContext.Posts.count() / 5)
-    const posts = await dbContext.Posts.find(query).populate('creator', 'name picture').limit(25).skip((page - 1) * 25)
+    const posts = await dbContext.Posts.find(query).populate('creator', 'name picture').sort((a, b) => { return a.votes - b.votes }).limit(25).skip((page - 1) * 25)
     return { results: posts, page, totalPages }
   }
 
@@ -33,11 +33,23 @@ class PostsService {
     return updated
   }
 
+  async vote(postId, voterId, voteStr) {
+    const post = await dbContext.Posts.find(p => p.id === postId)
+    const poster = await dbContext.Profiles.find(p => p.id === post.creatorId)
+    const voter = await dbContext.Profiles.find(p => p.id === voterId)
+    if (voteStr === 'up') {
+      poster.votes += 1 + (0.5 * voter.votes)
+    } else if (voteStr === 'down') {
+      poster.votes -= 1 + (0.5 * voter.votes)
+    }
+  }
+
   async remove(postId, userId) {
     const post = await this.getById(postId)
     if (post.creatorId.toString() !== userId) {
       throw new Forbidden('You shall not pass!')
     }
+    await dbContext.Comments.deleteMany({ postId: postId })
     await dbContext.Posts.findByIdAndDelete(postId)
   }
 }

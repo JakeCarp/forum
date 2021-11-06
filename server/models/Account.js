@@ -8,8 +8,7 @@ export const AccountSchema = new Schema(
     name: { type: String, required: true },
     picture: { type: String },
     // NOTE If you wish to add additional properties do so here
-    voteCount: { type: Number, required: true, default: 0 },
-    topPoster: { type: Boolean, required: true, default: false }
+    votes: { type: Number, required: true, default: 0 }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
@@ -19,8 +18,7 @@ export const ProfileSchema = new Schema(
     name: { type: String, required: true },
     picture: { type: String },
     // NOTE if you want to make properties from the account public put them here
-    topPoster: { type: Boolean, required: true, default: false },
-    voteCount: { type: Number, required: true, default: 0 }
+    votes: { type: Number, required: true, default: 0 }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
