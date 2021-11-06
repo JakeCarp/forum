@@ -19,80 +19,210 @@
   <title>The Posted King</title>
 </head>
 
-<body>
-  <header>
-    <div class="col-md-12 bg-primary text-center outline" id="title">
-      <span class=" text-light title-font">
+<body class="container-fluid">
+  <header class="row">
+    <div class="col-12 bg-primary outline d-flex w-100 justify-content-center" id="title">
+      <img class="me-auto header-logo" src="assets/img/PostedLogo.png" alt="">
+      <span class="text-light title-font">
         <i class="mdi mdi-crown-outline"></i> The Posted King <i class="mdi mdi-crown-outline"></i></span>
     </div>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light navbar-center">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav ms-3">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
-            aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="mdi mdi-filter-outline"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#upvotes">Upvotes</a></li>
-                  <li><a class="dropdown-item" href="#downvotes">Downvotes</a></li>
-                  <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#about">About</a></li>
-                  <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#rules">Rules</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="input-group rounded mx-2 searchW">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-              aria-describedby="search-addon" />
-            <span class="input-group-text border-0" id="search-addon">
-              <i class="fas fa-search"></i>
-            </span>
+    <div class="w-100 px-0">
+      <nav class="navbar navbar-dark navbar-expand bg-dark text-light navbar-center mb-3">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="navbar-nav ms-3">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="mdi mdi-filter-outline"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#upvotes">Upvotes</a></li>
+                    <li><a class="dropdown-item" href="#downvotes">Downvotes</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#about">About</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#rules">Rules</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="input-group rounded mx-2 searchW">
+              <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                aria-describedby="search-addon" />
+              <span class="input-group-text border-0" id="search-addon">
+                <i class="fas fa-search"></i>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
-    </nav>
+        <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+      </nav>
+    </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="rules" aria-labelledby="rules">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">The Kings Rules</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <p>Rules here.....</p>
+        <div class="col-12">
+          <center><i class="fas fa-gem"></i></center>
+          <p>There shalt be no vulgar language. Respect your fellow forum-goers as you would your king.</p>
+          <center><i class="fas fa-gem"></i></center>
+          <p> Grammar, spelling, and punctuation are important when presenting thyself among the masses within posts or
+            comments. Speak as thou wouldst to a nobleman rather than a peasant.</p>
+          <center><i class="fas fa-gem"></i></center>
+          <p> Commentary on a post is not obligatory. Images art allowed to exist by themselves.
+            Remember, though: A photo without context can be cause for controversy.</p>
+          <center><i class="fas fa-gem"></i></center>
+          <p> Do at least <i>try</i> to keep any photos posted
+            relevant to what thee are speaking of. A photo of a dragon is not indicative of how comfortable thine shoes
+            are. Please keep it relevant.</p>
+          <center><i class="fas fa-gem"></i></center>
+          <p> Revealing personal information, such as where thy dwelling or hovel are, thy
+            name, date of birth, sensitive payment information, and anything else that might be considered integral to
+            thy person, can result in poachers adopting thy identity, which can lead to trouble with the local
+            highwaymen and tax services. Please be aware of what thou art sharing.</p>
+        </div>
       </div>
+    </div>
     </div>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="about" aria-labelledby="about">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">About the Posted...</h5>
+        <h4 class="offcanvas-title" id="offcanvasWithBackdropLabel">Welcome to the Posted King</h4>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <p>About info here.....</p>
+        <P>
+          Here thou art welcome to be whoever thee wants to be, so long as it falls within the guidelines set forth by
+          the creators of this social gathering. Whether thou wishes to speak about thine day, thine pets, the goings-on
+          within the kingdom, local faires, or anything else that interests thee, thine posts are welcome here.
+        </p>
+        <p>
+          Perhaps thou hast already noticed that there is a hierarchy within the pages of this site. There shall always
+          be a king, who is established by an amalgamation of the likes across one user's posts. If thou are the user
+          whose posts, in total, hast the most likes over anyone else, thou are crowned the king and thine most liked
+          post
+          will be pinned to the top of the page. Truly, an honor in and of itself!
+        </P>
+        <P>
+          When thou are the king, the amount of likes thee hast across all posts will multiply thine influence upon
+          others.
+          Whereas normal forum-goers hast one 'like' per like, the king's will increment per how many likes he has.
+          Eventually, the king's likes could add 2, 5, 10, or perhaps even 100 likes per like that he bestows.
+        </P>
+        <p>
+          But beware! The King can change at any moment! Although each individual can only like a post once, the number
+          of likes on another user's overall posts may, at some point, overtake the current King. The crown will then be
+          passed to that person.
+        </p>
+        <P>
+          And now, I set you free! Be sure to read and follow the rules, and fight to become The Posted King! Maybe the
+          odds be ever in thy favor.
+        </P>
       </div>
     </div>
   </header>
+
+
   <main id="app">
-    <div class="container-fluid">
-      <div class="row my-3">
+    <div>
+      <div class="row my-3 justify-content-center" id="post-cards">
+
+        <!--template-->
+        <div class="col-md-6">
+          <div class="card bg-secondary elevation-2 p-2 m-3 text-light">
+            <!--PostHeader-->
+            <div class="row text-center">
+              <div class=" col-1 pos-logo">
+                <img class="logo rotated" src="assets/img/PostedLogo.png" alt="logo">
+              </div>
+              <div class="col-4 text-start">
+                <h5>!UserName!</h5>
+              </div>
+              <div class="col-7 text-start">
+                <h5>!Title of Post!</h5>
+              </div>
+            </div>
+
+            <!--Postcard image container-->
+            <div class="row justify-content-center m-3 img-fluid" id="image">
+              <div class="col-md-6 bg-dark img-contain">
+                <img src="URL" alt="Image">
+              </div>
+            </div>
+            <!--PostBody-->
+            <div class="row justify-content-center text-dark">
+              <div class="col-md-8 bg-light p-2 rounded mb-3" id="post-body">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, impedit quia. Dicta, mollitia,
+                  reprehenderit praesentium maiores rem dolorem id ut cum delectus voluptate obcaecati laboriosam
+                  debitis, libero fugiat. Molestias, provident?
+                  Illo expedita sunt dolorem corrupti et reprehenderit at iste nam similique commodi, culpa porro labore
+                  veniam tenetur repellendus sequi fugit in accusantium, magnam totam! Vitae dolores at dolorem quae
+                  similique.
+                </p>
+              </div>
+            </div>
+            <!--Buttons-->
+            <div class="row">
+              <span class="text-start col-md-1">
+                <i class="mdi mdi-chevron-double-up icon-button" onclick="upvote()" id="upvote-btn">00</i>
+              </span>
+              <span class="text-start col-md-1">
+                <i class="mdi mdi-chevron-double-down icon-button" onclick="downvote()" id="downvote-btn">00</i>
+              </span>
+              <span class="text-start col-md-1">
+                <i class="mdi mdi-comment-multiple-outline icon-button" data-bs-toggle="collapse"
+                  data-bs-target="#comments" id="comment-btn">00</i>
+              </span>
+              <!--Comment Drawer-->
+              <div class="collapse" id="comments" data-bs-toggle="collapse">
+                <div class="card bg-light text-dark p-3">
+                  <div class="row">
+                    <div class="col-md-12" id="user-name">
+                      <b>
+                        !UserName!
+                      </b>
+                    </div>
+                  </div>
+                  <div id="user-comment">
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam ut fuga ea atque, perspiciatis
+                      veniam labore in corporis sunt! Accusamus debitis mollitia blanditiis eum non dolorum assumenda?
+                      Odio, obcaecati reiciendis.
+                    </p>
+                  </div>
+                </div>
+                <form onsubmit="">
+                  <div class="input-group mb-1">
+                    <input type="text" class="form-control transparent text-dark" name="comment-text" id="addToList"
+                      aria-describedby="helpId" placeholder="What do you want to say?" autocomplete="off" required
+                      minlength="5" maxlength="500">
+                    <button class="btn btn-sm" id="" type="submit">
+                      <i class="mdi mdi-send-outline mdi-24px"></i>
+                    </button>
+                    </input>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
-  <footer class="container-fluid bg-dark text-light">
-    <div class="row text-center">
-      <div class="col">
-        <p><small>Made with 💖 by CodeWorks</small></p>
-      </div>
+  <footer class="row text-center bg-dark text-light">
+    <div class="col">
+      <p><small>Made with 💖 by CodeWorks</small></p>
     </div>
   </footer>
 

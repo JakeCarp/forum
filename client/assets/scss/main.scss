@@ -67,6 +67,63 @@ searchW{
 
 @media screen and (max-width: 600px) {
   #title {
-    font-size: 3em;
+    font-size: 2em;
   }
 }
+
+.b-border {
+  border-bottom: 2px solid $grey;
+}
+
+.img-contain {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.logo {
+  max-width: 50px;
+  max-height: 50px;
+  object-fit: contain;
+}
+
+.pos-logo {
+  transform: translate(-33px, -45px);
+}
+.rotated {
+  transform: rotate(-25deg);
+}
+
+.header-logo {
+  max-height: 95px;
+  max-width: 95px;
+  object-fit: contain;
+  position: absolute;
+  left: .25em;
+}
+
+.icon-button {
+  cursor: pointer;
+}
+
+.transparent {
+  width: auto;
+  background: none;
+  border: none;
+  border-bottom: 2px solid rgb(29, 29, 29);
+  outline: none;
+}
+
+.transparent:focus {
+  box-shadow: none;
+  outline: none;
+  background: none;
+  }
+  .transparent::after {
+    box-shadow: none;
+    inset: none;
+    outline: none;
+    background: none;
+  }
+  
