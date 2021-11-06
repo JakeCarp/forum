@@ -135,101 +135,106 @@
 
   <main id="app">
     <div>
-      <div class="row my-3 justify-content-center" id="post-cards">
+      <div class="row text-start">
+        <span class="">
+          <i class="mdi mdi-plus-circle-outline mdi-48px icon-button" onclick="createPost()"></i>
+        </span>
+        <div class="row my-3 justify-content-center" id="post-cards">
 
-        <!--template-->
-        <div class="col-md-6">
-          <div class="card bg-secondary elevation-2 p-2 m-3 text-dark">
-            <!--PostHeader-->
-            <div class="row text-center">
-              <!--King Logo-->
-              <div class=" col-1 pos-logo">
-                <img class="logo rotated" src="assets/img/PostedLogo.png" alt="logo">
-              </div>
-              <!--King Logo end-->
-              <div class="col-4 text-start" id="post-username">
-                <h6>!UserName!</h6>
-              </div>
-              <div class="col-5 text-start" id="post-title">
-                <h6>!Title of Post!</h6>
-              </div>
-              <div class="col-2 text-end">
-                <i class="mdi mdi-close-circle-outline mdi-24px text-danger icon-button" onclick="deletePost()"></i>
-              </div>
-            </div>
-            <!--Post Header End-->
-
-            <!--Postcard Image Container-->
-            <div class="row justify-content-center m-3 img-fluid" id="image">
-              <div class="col-md-6 bg-dark img-contain d-none">
-                <img src="URL" alt="Image">
-              </div>
-            </div>
-            <!--Image End-->
-            <!--PostBody-->
-            <div class="row justify-content-center text-dark">
-              <div class="col-10 bg-light p-3 rounded mb-4" id="post-body">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, impedit quia. Dicta, mollitia,
-                  reprehenderit praesentium maiores rem dolorem id ut cum delectus voluptate obcaecati laboriosam
-                  debitis, libero fugiat. Molestias, provident?
-                  Illo expedita sunt dolorem corrupti et reprehenderit at iste nam similique commodi, culpa porro labore
-                  veniam tenetur repellendus sequi fugit in accusantium, magnam totam! Vitae dolores at dolorem quae
-                  similique.
-                </p>
-              </div>
-            </div>
-            <!--Buttons-->
-            <div class="row d-flex align-items-bottom text-dark">
-              <div class="col-md-12 d-flex ">
-                <i class="mdi mdi-chevron-double-up icon-button" onclick="upvote()" id="upvote-btn"></i>
-                <p class="col-md-1 p-0 text-center mb-0">00</p>
-                <i class="mdi mdi-chevron-double-down icon-button" onclick="downvote()" id="downvote-btn"></i>
-                <i class="mdi mdi-comment-multiple-outline icon-button ms-3 m--" data-bs-toggle="collapse"
-                  data-bs-target="#comments" id="comment-btn"> 00</i>
-              </div>
-              <!--Buttons End-->
-              <!--Template End-->
-              <!--Comment Drawer-->
-              <div class="collapse" id="comments" data-bs-toggle="collapse">
-                <div class="card bg-light text-dark p-3 m-4">
-                  <div class="row">
-                    <div class="col-md-10" id="user-name">
-                      <b>
-                        !UserName!
-                      </b>
-                    </div>
-                    <div class="col-md-2 text-end text-danger">
-                      <i class="mdi mdi-delete-circle-outline mdi-24px icon-button" onclick="deleteComment()"></i>
-                    </div>
-                  </div>
-                  <div class="" id="user-comment">
-                    <p>
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam ut fuga ea atque, perspiciatis
-                      veniam labore in corporis sunt! Accusamus debitis mollitia blanditiis eum non dolorum assumenda?
-                      Odio, obcaecati reiciendis.
-                    </p>
-                  </div>
+          <!--template-->
+          <div class="col-md-6">
+            <div class="card bg-secondary elevation-2 p-2 m-3 text-dark">
+              <!--PostHeader-->
+              <div class="row text-center">
+                <!--King Logo-->
+                <div class=" col-1 pos-logo">
+                  <img class="logo rotated" src="assets/img/PostedLogo.png" alt="logo">
                 </div>
-                <form onsubmit="submitComment()">
-                  <div class="input-group mb-1">
-                    <div contenteditable="true" tabindex="0" class="ms-4 fake-input transparent" id="fake-input"
-                      onclick="document.getElementById('fake-input').innerText = '' ">
-                      What would you like to say?
-                    </div>
-                    <button class="btn btn-sm pe-0" id="" type="submit">
-                      <i class="mdi mdi-send-outline mdi-24px"
-                        onclick="document.getElementById('fake-input').innerText = 'What would you like to say?' "></i>
-                    </button>
-                  </div>
-                </form>
+                <!--King Logo end-->
+                <div class="col-4 text-start" id="post-username">
+                  <h6>!UserName!</h6>
+                </div>
+                <div class="col-5 text-start" id="post-title">
+                  <h6>!Title of Post!</h6>
+                </div>
+                <div class="col-2 text-end">
+                  <i class="mdi mdi-close-circle-outline mdi-24px text-danger icon-button" onclick="deletePost()"></i>
+                </div>
               </div>
-              <!--Comment Drawer End-->
+              <!--Post Header End-->
+
+              <!--Postcard Image Container-->
+              <div class="row justify-content-center m-3 img-fluid" id="image">
+                <div class="col-md-6 bg-dark img-contain d-none">
+                  <img src="URL" alt="Image">
+                </div>
+              </div>
+              <!--Image End-->
+              <!--PostBody-->
+              <div class="row justify-content-center text-dark">
+                <div class="col-10 bg-light p-3 rounded mb-4" id="post-body">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, impedit quia. Dicta, mollitia,
+                    reprehenderit praesentium maiores rem dolorem id ut cum delectus voluptate obcaecati laboriosam
+                    debitis, libero fugiat. Molestias, provident?
+                    Illo expedita sunt dolorem corrupti et reprehenderit at iste nam similique commodi, culpa porro
+                    labore
+                    veniam tenetur repellendus sequi fugit in accusantium, magnam totam! Vitae dolores at dolorem quae
+                    similique.
+                  </p>
+                </div>
+              </div>
+              <!--Buttons-->
+              <div class="row d-flex align-items-bottom text-dark">
+                <div class="col-md-12 d-flex ">
+                  <i class="mdi mdi-chevron-double-up icon-button" onclick="upvote()" id="upvote-btn"></i>
+                  <p class="col-md-1 p-0 text-center mb-0">00</p>
+                  <i class="mdi mdi-chevron-double-down icon-button" onclick="downvote()" id="downvote-btn"></i>
+                  <i class="mdi mdi-comment-multiple-outline icon-button ms-3 m--" data-bs-toggle="collapse"
+                    data-bs-target="#comments" id="comment-btn"> 00</i>
+                </div>
+                <!--Buttons End-->
+                <!--Template End-->
+                <!--Comment Drawer-->
+                <div class="collapse" id="comments" data-bs-toggle="collapse">
+                  <div class="card bg-light text-dark p-3 m-4">
+                    <div class="row">
+                      <div class="col-md-10" id="user-name">
+                        <b>
+                          !UserName!
+                        </b>
+                      </div>
+                      <div class="col-md-2 text-end text-danger">
+                        <i class="mdi mdi-delete-circle-outline mdi-24px icon-button" onclick="deleteComment()"></i>
+                      </div>
+                    </div>
+                    <div class="" id="user-comment">
+                      <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam ut fuga ea atque, perspiciatis
+                        veniam labore in corporis sunt! Accusamus debitis mollitia blanditiis eum non dolorum assumenda?
+                        Odio, obcaecati reiciendis.
+                      </p>
+                    </div>
+                  </div>
+                  <form onsubmit="submitComment()">
+                    <div class="input-group mb-1">
+                      <div contenteditable="true" tabindex="0" class="ms-4 fake-input transparent" id="fake-input"
+                        onclick="document.getElementById('fake-input').innerText = '' ">
+                        What would you like to say?
+                      </div>
+                      <button class="btn btn-sm pe-0" id="" type="submit">
+                        <i class="mdi mdi-send-outline mdi-24px"
+                          onclick="document.getElementById('fake-input').innerText = 'What would you like to say?' "></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <!--Comment Drawer End-->
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </main>
   <footer class="row text-center bg-dark text-light">
     <div class="col-md-12">
