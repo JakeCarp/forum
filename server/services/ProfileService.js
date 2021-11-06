@@ -1,5 +1,4 @@
-import { dbContext } from '../db/DbContext.js'
-import { postsService } from './PostsService.js'
+import { dbContext } from '../db/DbContext'
 
 // IMPORTANT profiles should not be updated or modified in any way here. Use the AccountService
 
@@ -28,17 +27,6 @@ class ProfileService {
       .skip(Number(offset))
       .limit(20)
       .exec()
-  }
-  
-  async getKing() {
-    const profiles = await dbContext.Profiles.find()
-    profiles.sort((a, b) {
-      return a.votes - b.votes
-    })
-    const king = profiles[0]
-    const query = `?creatorId = ${king.id}`
-    const topPost = postsService.getAll(query)
-    return { king: king, topPost: topPost}
   }
 }
 

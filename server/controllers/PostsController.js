@@ -1,7 +1,6 @@
 import { postsService } from '../services/PostsService'
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
-import { dbContext } from '../db/DbContext'
 
 export class PostsController extends BaseController {
   constructor() {
@@ -9,7 +8,7 @@ export class PostsController extends BaseController {
     this.router
       .get('', this.getAll)
       .get('/:id', this.getById)
-    //   .get(':/posts/king', this.getKing)
+      .get('/king', this.getKing)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
       .put('/:id', this.edit)
@@ -72,6 +71,15 @@ export class PostsController extends BaseController {
       res.send('vote sent')
     } catch (error) {
 
+    }
+  }
+
+  async getKing(req, res, next) {
+    try {
+      const king = await postsService.getKing()
+      return res.send(king)
+    } catch (error) {
+      next(error)
     }
   }
 

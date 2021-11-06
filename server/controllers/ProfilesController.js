@@ -1,4 +1,4 @@
-import { profileService } from '../services/ProfileService.js'
+import { profileService } from '../services/ProfileService'
 import BaseController from '../utils/BaseController'
 
 export class ProfilesController extends BaseController {
@@ -6,7 +6,6 @@ export class ProfilesController extends BaseController {
     super('api/profiles')
     this.router
       .get('', this.getProfiles)
-      .get('/king')
       .get('/:id', this.getProfile)
   }
 

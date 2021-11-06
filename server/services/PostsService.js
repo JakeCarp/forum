@@ -44,6 +44,17 @@ class PostsService {
     }
   }
 
+  async getKing() {
+    const profiles = await dbContext.Profiles.find()
+    profiles.sort((a, b) => {
+      return a.votes - b.votes
+    })
+    const king = profiles[0]
+    const query = `?creatorId = ${king.id}`
+    const topPost = postsService.getAll(query)
+    return { king: king, topPost: topPost }
+  }
+
   async remove(postId, userId) {
     const post = await this.getById(postId)
     if (post.creatorId.toString() !== userId) {
