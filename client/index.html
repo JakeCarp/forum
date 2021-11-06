@@ -21,8 +21,8 @@
 
 <body class="container-fluid">
   <header class="row">
-    <div class="col-12 bg-primary outline d-flex w-100 justify-content-center" id="title">
-      <img class="me-auto header-logo" src="assets/img/PostedLogo.png" alt="">
+    <div class="col-md-12 bg-primary outline d-flex w-100 justify-content-center" id="title">
+      <img class="me-auto header-logo" src="assets/img/PostedLogo.png" id="header-logo" alt="logo">
       <span class="text-light title-font">
         <i class="mdi mdi-crown-outline"></i> The Posted King <i class="mdi mdi-crown-outline"></i></span>
     </div>
@@ -73,7 +73,7 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <div class="col-12">
+        <div class="col-md-12">
           <center><i class="fas fa-gem"></i></center>
           <div style="margin-left:10%">There shall be no vulgar language. Respect your
             fellow forum-goers as you would your king.</div>
@@ -144,29 +144,36 @@
 
         <!--template-->
         <div class="col-md-6">
-          <div class="card bg-secondary elevation-2 p-2 m-3 text-light">
+          <div class="card bg-secondary elevation-2 p-2 m-3 text-dark">
             <!--PostHeader-->
             <div class="row text-center">
+              <!--King Logo-->
               <div class=" col-1 pos-logo">
                 <img class="logo rotated" src="assets/img/PostedLogo.png" alt="logo">
               </div>
-              <div class="col-4 text-start">
-                <h5>!UserName!</h5>
+              <!--King Logo end-->
+              <div class="col-4 text-start" id="post-username">
+                <h6>!UserName!</h6>
               </div>
-              <div class="col-7 text-start">
-                <h5>!Title of Post!</h5>
+              <div class="col-5 text-start" id="post-title">
+                <h6>!Title of Post!</h6>
+              </div>
+              <div class="col-2 text-end">
+                <i class="mdi mdi-close-circle-outline mdi-24px text-danger icon-button" onclick="deletePost()"></i>
               </div>
             </div>
+            <!--Post Header End-->
 
-            <!--Postcard image container-->
+            <!--Postcard Image Container-->
             <div class="row justify-content-center m-3 img-fluid" id="image">
-              <div class="col-md-6 bg-dark img-contain">
+              <div class="col-md-6 bg-dark img-contain d-none">
                 <img src="URL" alt="Image">
               </div>
             </div>
+            <!--Image End-->
             <!--PostBody-->
             <div class="row justify-content-center text-dark">
-              <div class="col-md-8 bg-light p-2 rounded mb-3" id="post-body">
+              <div class="col-10 bg-light p-3 rounded mb-4" id="post-body">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, impedit quia. Dicta, mollitia,
                   reprehenderit praesentium maiores rem dolorem id ut cum delectus voluptate obcaecati laboriosam
@@ -178,28 +185,30 @@
               </div>
             </div>
             <!--Buttons-->
-            <div class="row">
-              <span class="text-start col-md-1">
-                <i class="mdi mdi-chevron-double-up icon-button" onclick="upvote()" id="upvote-btn">00</i>
-              </span>
-              <span class="text-start col-md-1">
-                <i class="mdi mdi-chevron-double-down icon-button" onclick="downvote()" id="downvote-btn">00</i>
-              </span>
-              <span class="text-start col-md-1">
-                <i class="mdi mdi-comment-multiple-outline icon-button" data-bs-toggle="collapse"
-                  data-bs-target="#comments" id="comment-btn">00</i>
-              </span>
+            <div class="row d-flex align-items-bottom text-dark">
+              <div class="col-md-12 d-flex ">
+                <i class="mdi mdi-chevron-double-up icon-button" onclick="upvote()" id="upvote-btn"></i>
+                <p class="col-md-1 p-0 text-center mb-0">00</p>
+                <i class="mdi mdi-chevron-double-down icon-button" onclick="downvote()" id="downvote-btn"></i>
+                <i class="mdi mdi-comment-multiple-outline icon-button ms-3 m--" data-bs-toggle="collapse"
+                  data-bs-target="#comments" id="comment-btn"> 00</i>
+              </div>
+              <!--Buttons End-->
+              <!--Template End-->
               <!--Comment Drawer-->
               <div class="collapse" id="comments" data-bs-toggle="collapse">
-                <div class="card bg-light text-dark p-3">
+                <div class="card bg-light text-dark p-3 m-4">
                   <div class="row">
-                    <div class="col-md-12" id="user-name">
+                    <div class="col-md-10" id="user-name">
                       <b>
                         !UserName!
                       </b>
                     </div>
+                    <div class="col-md-2 text-end text-danger">
+                      <i class="mdi mdi-delete-circle-outline mdi-24px icon-button" onclick="deleteComment()"></i>
+                    </div>
                   </div>
-                  <div id="user-comment">
+                  <div class="" id="user-comment">
                     <p>
                       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam ut fuga ea atque, perspiciatis
                       veniam labore in corporis sunt! Accusamus debitis mollitia blanditiis eum non dolorum assumenda?
@@ -207,18 +216,20 @@
                     </p>
                   </div>
                 </div>
-                <form onsubmit="">
+                <form onsubmit="submitComment()">
                   <div class="input-group mb-1">
-                    <input type="text" class="form-control transparent text-dark" name="comment-text" id="addToList"
-                      aria-describedby="helpId" placeholder="What do you want to say?" autocomplete="off" required
-                      minlength="5" maxlength="500">
-                    <button class="btn btn-sm" id="" type="submit">
-                      <i class="mdi mdi-send-outline mdi-24px"></i>
+                    <div contenteditable="true" tabindex="0" class="ms-4 fake-input transparent" id="fake-input"
+                      onclick="document.getElementById('fake-input').innerText = '' ">
+                      What would you like to say?
+                    </div>
+                    <button class="btn btn-sm pe-0" id="" type="submit">
+                      <i class="mdi mdi-send-outline mdi-24px"
+                        onclick="document.getElementById('fake-input').innerText = 'What would you like to say?' "></i>
                     </button>
-                    </input>
                   </div>
                 </form>
               </div>
+              <!--Comment Drawer End-->
             </div>
           </div>
         </div>
@@ -226,7 +237,7 @@
     </div>
   </main>
   <footer class="row text-center bg-dark text-light">
-    <div class="col">
+    <div class="col-md-12">
       <p><small>Made with 💖 by CodeWorks</small></p>
     </div>
   </footer>

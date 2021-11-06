@@ -54,20 +54,38 @@ button:focus {
   border: none;
   cursor: pointer;
 }
-searchW{
-  max-width: 100px;
-}
 
 
 @media screen and (min-width: 601px) {
   #title {
     font-size: 4em;
   }
+  #header-logo {
+    max-height: 95px;
+    max-width: 95px;
+    object-fit: contain;
+    position: absolute;
+    left: .25em;
+  }
 }
 
 @media screen and (max-width: 600px) {
   #title {
     font-size: 2em;
+  }
+  #header-logo {
+      max-height: 45px;
+      max-width: 45px;
+      object-fit: contain;
+      position: absolute;
+      left: .25em;
+  }
+  #fake-input {
+    width: 83%;
+    min-height: 1.5em;
+    line-height: 1.5em;
+    padding: 0.5em;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.541);
   }
 }
 
@@ -118,7 +136,7 @@ searchW{
 .transparent:focus {
   box-shadow: none;
   outline: none;
-  background: none;
+  background: #e1e1e17d;
   }
   .transparent::after {
     box-shadow: none;
@@ -126,4 +144,13 @@ searchW{
     outline: none;
     background: none;
   }
+  
+  .fake-input {
+    width: 90.5%;
+    min-height: 1.5em;
+    line-height: 1.5em;
+    padding: 0.5em;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.541);
+  }
+
   
