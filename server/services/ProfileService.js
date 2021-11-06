@@ -1,4 +1,4 @@
-import { dbContext } from '../db/DbContext.js'
+import { dbContext } from '../db/DbContext'
 
 // IMPORTANT profiles should not be updated or modified in any way here. Use the AccountService
 

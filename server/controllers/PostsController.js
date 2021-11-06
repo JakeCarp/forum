@@ -1,7 +1,6 @@
 import { postsService } from '../services/PostsService'
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
-import { dbContext } from '../db/DbContext'
 
 export class PostsController extends BaseController {
   constructor() {
@@ -9,10 +8,11 @@ export class PostsController extends BaseController {
     this.router
       .get('', this.getAll)
       .get('/:id', this.getById)
-    //   .get(':/posts/king', this.getKing)
+      .get('/king', this.getKing)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
       .put('/:id', this.edit)
+      .put('/:id/:vote', this.vote)
       .delete('/:id', this.remove)
   }
 
@@ -39,9 +39,7 @@ export class PostsController extends BaseController {
   async create(req, res, next) {
     try {
       const postData = req.body
-      delete postData.upVotes
-      delete postData.downVotes
-      delete postData.totalVotes
+      // delete postData.votes
       postData.creatorId = req.userInfo.id
       const post = await postsService.create(postData)
       return res.send(post)
@@ -57,6 +55,27 @@ export class PostsController extends BaseController {
       postData.id = req.params.id
       const post = await postsService.edit(postData)
       return res.send(post)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async vote(req, res, next) {
+    try {
+      const voteStr = req.params.vote
+      const postId = req.params.id
+      const voterId = req.userInfo.id
+      await postsService.vote(voteStr, postId, voterId)
+      res.send('vote sent')
+    } catch (error) {
+
+    }
+  }
+
+  async getKing(req, res, next) {
+    try {
+      const king = await postsService.getKing()
+      return res.send(king)
     } catch (error) {
       next(error)
     }

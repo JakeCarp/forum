@@ -1,4 +1,4 @@
-import { profileService } from '../services/ProfileService.js'
+import { profileService } from '../services/ProfileService'
 import BaseController from '../utils/BaseController'
 
 export class ProfilesController extends BaseController {
@@ -24,6 +24,15 @@ export class ProfilesController extends BaseController {
       res.send(profile)
     } catch (error) {
       next(error)
+    }
+  }
+
+  async getKing(req, res, next) {
+    try {
+      const kingObj = await profileService.getKing()
+      return res.send(kingObj)
+    } catch (error) {
+
     }
   }
 }
