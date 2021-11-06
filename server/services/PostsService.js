@@ -46,9 +46,7 @@ class PostsService {
 
   async getKing() {
     const profiles = await dbContext.Profiles.find()
-    profiles.sort((a, b) => {
-      return a.votes - b.votes
-    })
+    profiles.sort({ votes: 'desc' })
     const king = profiles[0]
     const query = `?creatorId = ${king.id}`
     const topPost = postsService.getAll(query)
