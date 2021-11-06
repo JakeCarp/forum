@@ -39,9 +39,7 @@ export class PostsController extends BaseController {
   async create(req, res, next) {
     try {
       const postData = req.body
-      delete postData.upVotes
-      delete postData.downVotes
-      delete postData.totalVotes
+      // delete postData.votes
       postData.creatorId = req.userInfo.id
       const post = await postsService.create(postData)
       return res.send(post)
